@@ -4,13 +4,16 @@ extends CharacterBody2D
 
 @export var health = 100
 
+@export var shoot_delay = 100.0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 
-var bullet_scene: PackedScene = preload("res://Bullet.tscn")
+var bullet_scene: PackedScene = load("res://Bullet.tscn")
 
 @onready var animation_player = $AnimatedSprite2D
+@onready var lastShot = shoot_delay / 1000
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	#reset velocity to have sharp movement
@@ -38,10 +41,15 @@ func _process(_delta):
 	#move the character and check collisions
 	move_and_collide(velocity * _delta)
 	
-	if (Input.is_action_pressed("player_primary_attack")):
-		var bullet = bullet_scene.instantiate(PackedScene.GEN_EDIT_STATE_DISABLED)
-		bullet.direction = (get_global_mouse_position() - position).normalized()
-		print(bullet.direction)
-		bullet.position = position
-		$"..".add_child(bullet)
-		
+	if (lastShot <= 0):
+		if (Input.is_action_pressed("player_primary_attack")):
+			var bullet = bullet_scene.instantiate(PackedScene.GEN_EDIT_STATE_DISABLED)
+			bullet.direction = (get_global_mouse_position() - position).normalized()
+			var direction = 1
+			if (Input.is_action_pressed("move_left")):
+				direction = -1
+			bullet.position = position + Vector2(35 * direction, -10)
+			$"..".add_child(bullet)
+			lastShot = shoot_delay / 1000
+	else:
+		lastShot -= _delta

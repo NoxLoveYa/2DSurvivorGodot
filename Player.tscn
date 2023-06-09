@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://dgoi1ghypb5wp"]
+[gd_scene load_steps=15 format=3 uid="uid://dgoi1ghypb5wp"]
 
 [ext_resource type="Script" path="res://PlayerMovement.gd" id="1_6oj04"]
+[ext_resource type="PackedScene" uid="uid://cp7ovntnajl71" path="res://Bullet.tscn" id="2_fc5uv"]
 [ext_resource type="Texture2D" uid="uid://c6280fsikrlhn" path="res://Assets/Player.png" id="2_i3qhf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_00f24"]
@@ -91,6 +92,8 @@ height = 16.0
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_mask = 5
 script = ExtResource("1_6oj04")
+
+[node name="AnimatableBody2D" parent="." instance=ExtResource("2_fc5uv")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

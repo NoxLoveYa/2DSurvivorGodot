@@ -5,22 +5,23 @@
 [ext_resource type="Texture2D" uid="uid://b2cxjuhssif1w" path="res://Assets/PointLight.jpg" id="3_4l366"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_foyfq"]
-size = Vector2(1, 1)
+size = Vector2(10, 10)
 
 [node name="AnimatableBody2D" type="AnimatableBody2D"]
-scale = Vector2(10, 10)
 collision_layer = 2
 collision_mask = 4
+sync_to_physics = false
 script = ExtResource("1_e1lnl")
 speed = 1000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -3.8147e-07)
+position = Vector2(-4.23193e-07, -9.53675e-08)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_foyfq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+scale = Vector2(10, 10)
 texture = ExtResource("2_p8gvo")
 
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]

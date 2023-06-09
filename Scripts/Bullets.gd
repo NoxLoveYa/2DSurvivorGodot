@@ -10,7 +10,7 @@ func calculateRotationAngle(dir: Vector2) -> float:
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if (direction.x == -404 or direction.y == -404):
-		free()
+		$"..".remove_child.call_deferred(self)
 	else:
 		rotation = calculateRotationAngle(direction)
 
@@ -18,6 +18,6 @@ func _ready():
 func _process(_delta):
 	move_and_collide(direction * speed * _delta)
 	if (position.x > 1920 or position.x < 0):
-		free()
+		$"..".remove_child.call_deferred(self)
 	elif (position.y > 1080 or position.y < 0):
-		free()
+		$"..".remove_child.call_deferred(self)
