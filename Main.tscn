@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqot2jtueiyvg"]
+
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_g8sau"]
+[ext_resource type="PackedScene" uid="uid://bqkvtl5wcfst3" path="res://Map.tscn" id="1_skuis"]
+[ext_resource type="PackedScene" uid="uid://dgoi1ghypb5wp" path="res://Player.tscn" id="3_kkblk"]
+[ext_resource type="PackedScene" uid="uid://do1vfguwlpxam" path="res://Ennemy_basic.tscn" id="4_wdfeb"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_g8sau")
+
+[node name="Map" parent="." instance=ExtResource("1_skuis")]
+
+[node name="Player" parent="Map" instance=ExtResource("3_kkblk")]
+position = Vector2(431, 393)
+scale = Vector2(5, 5)
+Velocity = 350.0
+
+[node name="Enemy_basic" parent="Map" instance=ExtResource("4_wdfeb")]
+position = Vector2(805, 194)
+scale = Vector2(5, 5)
+speed = 200.0
