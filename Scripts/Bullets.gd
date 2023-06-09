@@ -1,7 +1,8 @@
 extends AnimatableBody2D
 
+signal enemy_damage(enemy, damage)
+
 @export var speed = 400.0
-@export var damage = 10.0
 @export var direction = Vector2(-404, -404)
 
 func calculateRotationAngle(dir: Vector2) -> float:
@@ -21,3 +22,16 @@ func _process(_delta):
 		$"..".remove_child.call_deferred(self)
 	elif (position.y > 1080 or position.y < 0):
 		$"..".remove_child.call_deferred(self)
+
+@onready var player = $"../Player"
+
+func _on_area_2d_area_entered(area):
+	var area_parent = area.get_parent()
+	if (not area_parent.name.begins_with("Enemy")):
+		return
+	$"..".remove_child.call_deferred(self)
+	area_parent.health -= player.damage
+	if (area_parent.health <= 0):
+		player.score += area_parent.points
+		$"../../Control/Label".text = str("Score: ", player.score)
+		area_parent.free()
