@@ -40,6 +40,8 @@ func _process(_delta):
 	
 	if (Input.is_action_pressed("player_primary_attack")):
 		var bullet = bullet_scene.instantiate(PackedScene.GEN_EDIT_STATE_DISABLED)
-		bullet.direction = Vector2(1,1)
-		add_child(bullet)
+		bullet.direction = (get_global_mouse_position() - position).normalized()
+		print(bullet.direction)
+		bullet.position = position
+		$"..".add_child(bullet)
 		

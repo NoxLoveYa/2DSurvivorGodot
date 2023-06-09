@@ -1,20 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://cp7ovntnajl71"]
+[gd_scene load_steps=5 format=3 uid="uid://cp7ovntnajl71"]
 
 [ext_resource type="Script" path="res://Scripts/Bullets.gd" id="1_e1lnl"]
-[ext_resource type="Texture2D" uid="uid://b62yqgff0bblb" path="res://Assets/Bullet.png" id="1_krdr4"]
+[ext_resource type="Texture2D" uid="uid://b0ihxom1diymp" path="res://Assets/Square_Texture.png" id="2_p8gvo"]
+[ext_resource type="Texture2D" uid="uid://b2cxjuhssif1w" path="res://Assets/PointLight.jpg" id="3_4l366"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_75rd2"]
-radius = 2.0
-height = 16.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_foyfq"]
+size = Vector2(1, 1)
 
 [node name="AnimatableBody2D" type="AnimatableBody2D"]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(10, 10)
 collision_layer = 2
+collision_mask = 4
 script = ExtResource("1_e1lnl")
+speed = 1000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_75rd2")
+position = Vector2(0, -3.8147e-07)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_foyfq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_krdr4")
+texture = ExtResource("2_p8gvo")
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
+color = Color(1, 0.415686, 0, 1)
+texture = ExtResource("3_4l366")
+texture_scale = 0.01
