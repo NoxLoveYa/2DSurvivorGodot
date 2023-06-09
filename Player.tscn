@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://dgoi1ghypb5wp"]
+[gd_scene load_steps=15 format=3 uid="uid://dgoi1ghypb5wp"]
 
 [ext_resource type="Script" path="res://PlayerMovement.gd" id="1_6oj04"]
 [ext_resource type="Texture2D" uid="uid://c6280fsikrlhn" path="res://Assets/Player.png" id="2_i3qhf"]
+[ext_resource type="Texture2D" uid="uid://b2cxjuhssif1w" path="res://Assets/PointLight.jpg" id="3_1ts4o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_00f24"]
 atlas = ExtResource("2_i3qhf")
@@ -106,3 +107,8 @@ debug_color = Color(0.890196, 0, 0.796078, 0.270588)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_vpad5")
 debug_color = Color(0.890196, 0, 0.796078, 0.270588)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.662745, 0.545098, 0.901961, 1)
+texture = ExtResource("3_1ts4o")
+texture_scale = 0.1

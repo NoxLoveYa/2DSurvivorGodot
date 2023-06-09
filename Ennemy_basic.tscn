@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://do1vfguwlpxam"]
+[gd_scene load_steps=7 format=3 uid="uid://do1vfguwlpxam"]
 
 [ext_resource type="Script" path="res://Scripts/EnemieMovement.gd" id="1_dqyw2"]
 [ext_resource type="Texture2D" uid="uid://cwghainfqfbq5" path="res://Assets/Ennemies.png" id="1_f67pj"]
+[ext_resource type="Texture2D" uid="uid://b2cxjuhssif1w" path="res://Assets/PointLight.jpg" id="3_o3fc0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qvx5l"]
 atlas = ExtResource("1_f67pj")
@@ -43,6 +44,12 @@ debug_color = Color(0, 0.6, 0.701961, 0.301961)
 position = Vector2(-0.5, 5)
 shape = SubResource("RectangleShape2D_lp4vw")
 debug_color = Color(0.839216, 0, 0.929412, 0)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-0.666667, 5)
+color = Color(1, 0.207843, 0, 1)
+texture = ExtResource("3_o3fc0")
+texture_scale = 0.1
 
 [connection signal="player_damaged" from="." to="." method="_on_player_damaged"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
