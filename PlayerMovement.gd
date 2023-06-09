@@ -39,5 +39,7 @@ func _process(_delta):
 	move_and_collide(velocity * _delta)
 	
 	if (Input.is_action_pressed("player_primary_attack")):
-		add_child(bullet_scene.instantiate(PackedScene.GEN_EDIT_STATE_DISABLED))
+		var bullet = bullet_scene.instantiate(PackedScene.GEN_EDIT_STATE_DISABLED)
+		bullet.direction = Vector2(1,1)
+		add_child(bullet)
 		

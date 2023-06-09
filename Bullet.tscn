@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cp7ovntnajl71"]
+[gd_scene load_steps=4 format=3 uid="uid://cp7ovntnajl71"]
 
+[ext_resource type="Script" path="res://Scripts/Bullets.gd" id="1_e1lnl"]
 [ext_resource type="Texture2D" uid="uid://b62yqgff0bblb" path="res://Assets/Bullet.png" id="1_krdr4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_75rd2"]
@@ -9,6 +10,7 @@ height = 16.0
 [node name="AnimatableBody2D" type="AnimatableBody2D"]
 scale = Vector2(0.25, 0.25)
 collision_layer = 2
+script = ExtResource("1_e1lnl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_75rd2")
