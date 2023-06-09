@@ -8,6 +8,7 @@ height = 16.0
 
 [node name="AnimatableBody2D" type="AnimatableBody2D"]
 scale = Vector2(0.25, 0.25)
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_75rd2")

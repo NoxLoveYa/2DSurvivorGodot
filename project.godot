@@ -59,6 +59,10 @@ player_primary_attack={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_2="Bullet"
+
 [rendering]
 
 environment/defaults/default_clear_color=Color(0.192157, 0.192157, 0.192157, 1)
