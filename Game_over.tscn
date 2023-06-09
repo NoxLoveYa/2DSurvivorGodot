@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc05rwqmqayk1"]
+
+[ext_resource type="Texture2D" uid="uid://cr4gqtvba3twn" path="res://Assets/Button_retry.png" id="1_ioccs"]
+[ext_resource type="Script" path="res://Scripts/Game_over.gd" id="1_mhjbf"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_mhjbf")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 860.0
+offset_top = 393.0
+offset_right = 1195.0
+offset_bottom = 477.0
+
+[node name="TextureButton" type="TextureButton" parent="Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -860.0
+offset_top = -393.0
+offset_right = 1060.0
+offset_bottom = 687.0
+action_mode = 0
+texture_normal = ExtResource("1_ioccs")
+stretch_mode = 5
+
+[connection signal="pressed" from="Control/TextureButton" to="." method="_on_texture_button_pressed"]

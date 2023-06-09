@@ -19,3 +19,5 @@ Velocity = 350.0
 position = Vector2(805, 194)
 scale = Vector2(5, 5)
 speed = 200.0
+damage = 25
+attack_delay = 0.0

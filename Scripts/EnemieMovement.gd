@@ -5,6 +5,7 @@ signal player_damaged
 @export var health = 100
 @export var speed = 500.0
 @export var damage = 1
+@export var attack_delay = 0.35
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,6 +14,7 @@ func _ready():
 @onready var animation_player = $AnimatedSprite2D
 @onready var player = $"../Player"
 @onready var player_area = player.get_node("Area2D")
+@onready var dt = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	#calculate direction and apply it
@@ -29,12 +31,21 @@ func _process(_delta):
 
 	#move the character and check collisions
 	move_and_collide(velocity * _delta)
+	dt = _delta
+
+var lastDamage = 0
 
 func _on_area_2d_area_entered(area):
+	if (lastDamage > 0):
+		lastDamage -= dt
+		return
 	if (area == player_area):
 		player.health -= damage
+		lastDamage = attack_delay
 		emit_signal("player_damaged")
+
+var gameOverScene = preload("res://Game_over.tscn")
 
 func _on_player_damaged():
 	if (player.health <= 0):
-		pass
+		get_tree().change_scene_to_packed(gameOverScene)
