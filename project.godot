@@ -64,6 +64,7 @@ player_primary_attack={
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Bullet"
 2d_physics/layer_3="ennemies"
+2d_physics/layer_4="Walls"
 
 [rendering]
 
